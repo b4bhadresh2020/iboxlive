@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SourceSansPro-Regular';
+    src: url('SourceSansPro-Regular.eot');
+    src: url('SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('SourceSansPro-Regular.woff2') format('woff2'),
+        url('SourceSansPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

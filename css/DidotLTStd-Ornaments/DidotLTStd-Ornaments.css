@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'DidotLTStd-Ornaments';
+    src: url('DidotLTStd-Ornaments.eot');
+    src: url('DidotLTStd-Ornaments.eot?#iefix') format('embedded-opentype'),
+        url('DidotLTStd-Ornaments.woff2') format('woff2'),
+        url('DidotLTStd-Ornaments.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

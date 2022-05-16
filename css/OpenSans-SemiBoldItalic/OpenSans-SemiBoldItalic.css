@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'OpenSans-SemiBoldItalic';
+    src: url('OpenSans-SemiBoldItalic.eot');
+    src: url('OpenSans-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('OpenSans-SemiBoldItalic.woff2') format('woff2'),
+        url('OpenSans-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+

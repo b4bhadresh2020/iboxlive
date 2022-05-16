@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SourceSansPro-BlackIt';
+    src: url('SourceSansPro-BlackIt.eot');
+    src: url('SourceSansPro-BlackIt.eot?#iefix') format('embedded-opentype'),
+        url('SourceSansPro-BlackIt.woff2') format('woff2'),
+        url('SourceSansPro-BlackIt.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+

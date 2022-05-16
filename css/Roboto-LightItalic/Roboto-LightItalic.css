@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Roboto-LightItalic';
+    src: url('Roboto-LightItalic.eot');
+    src: url('Roboto-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Roboto-LightItalic.woff2') format('woff2'),
+        url('Roboto-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+

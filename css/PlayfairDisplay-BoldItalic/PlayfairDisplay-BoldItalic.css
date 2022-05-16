@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'PlayfairDisplay-BoldItalic';
+    src: url('PlayfairDisplay-BoldItalic.woff2') format('woff2'),
+        url('PlayfairDisplay-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+

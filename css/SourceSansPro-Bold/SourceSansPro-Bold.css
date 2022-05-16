@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SourceSansPro-Bold';
+    src: url('SourceSansPro-Bold.eot');
+    src: url('SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('SourceSansPro-Bold.woff2') format('woff2'),
+        url('SourceSansPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+

@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'DidotLTStd-Bold';
+    src: url('DidotLTStd-Bold.eot');
+    src: url('DidotLTStd-Bold.eot?#iefix') format('embedded-opentype'),
+        url('DidotLTStd-Bold.woff2') format('woff2'),
+        url('DidotLTStd-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+

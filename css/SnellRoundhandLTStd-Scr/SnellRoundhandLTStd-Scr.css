@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SnellRoundhandLTStd-Scr';
+    src: url('SnellRoundhandLTStd-Scr.eot');
+    src: url('SnellRoundhandLTStd-Scr.eot?#iefix') format('embedded-opentype'),
+        url('SnellRoundhandLTStd-Scr.woff2') format('woff2'),
+        url('SnellRoundhandLTStd-Scr.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+

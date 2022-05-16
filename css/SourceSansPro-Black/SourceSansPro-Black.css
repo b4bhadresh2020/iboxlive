@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'SourceSansPro-Black';
+    src: url('SourceSansPro-Black.eot');
+    src: url('SourceSansPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('SourceSansPro-Black.woff2') format('woff2'),
+        url('SourceSansPro-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+

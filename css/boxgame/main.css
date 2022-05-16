@@ -1,0 +1,440 @@
+body {
+  display: block;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 25px;
+	text-align: center;
+  word-break: break-word;
+  text-transform: uppercase;
+  color: rgba(255,255,255,1.00);
+  background-color: #58267B;
+}
+
+img {
+  display: block;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h1 {
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 40px;
+  padding-top: 25px;
+}
+
+p {
+  text-transform: none;
+  margin-top: 25px;
+}
+
+
+
+/* Header */
+
+.header {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2vh 0vh 0vh 0vh;
+  z-index: 9999;
+}
+
+.header__logo {
+  display: inline-block;
+  position: relative;
+  margin: 0px auto;
+}
+
+.header__logo > img {
+  width: auto;
+}
+
+
+
+/* Main */
+
+.chests {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.javwall.net/uploads/20210430062256_spinaway-casino-bonus.jpg") no-repeat bottom center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  padding: 18vh 6vw 4vh 6vw;
+}
+
+.chests:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url("../../images/boxgame/main-img.png") no-repeat bottom center /contain;
+}
+
+.chests__content {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  height: 100%;
+  padding: 0px;
+  margin: auto;
+}
+
+.chests__content li {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  max-width: 33.3%;
+}
+
+.chests__content li:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 60%;
+  bottom: 40%;
+  left: 50%;
+  right: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgba(255,215,70,1.00);
+  -webkit-box-shadow: 0vw 0vw 4vw 1vw rgba(255,215,70,1.00);
+  -moz-box-shadow: 0vw 0vw 4vw 1vw rgba(255,215,70,1.00);
+  box-shadow: 0vw 0vw 4vw 1vw rgba(255,215,70,1.00);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.chest {
+  display: block;
+  position: relative;
+  height: 23vh;
+  margin: 0px auto;
+  opacity: 0.00;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.chests__content li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: no-repeat center center /contain;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.chests__content li.closed {
+  cursor: pointer;
+}
+
+.chests__content li.closed > .chest {
+  opacity: 1.00;
+}
+
+.chests__content li.closed:hover > .chest {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.chests__content li.closed:hover:before {
+  top: 45%;
+  bottom: 25%;
+  left: 35%;
+  right: 35%;
+  -webkit-box-shadow: 0vw 0vw 8vw 2vw rgba(255,215,70,1.00);
+  -moz-box-shadow: 0vw 0vw 8vw 2vw rgba(255,215,70,1.00);
+  box-shadow: 0vw 0vw 8vw 2vw rgba(255,215,70,1.00);
+}
+
+.chests__content li.empty:after {
+  background-image: url('../../images/boxgame/chest-empty.png');
+}
+
+.chests__content li.bonus:after {
+  background-image: url('../../images/boxgame/chest-bonus.png');
+}
+
+.chests__content li.superbonus:after {
+  background-image: url('../../images/boxgame/chest-superbonus.png');
+}
+
+
+
+/* Article */
+
+.article {
+  display: block;
+  position: relative;
+  max-width: 1200px;
+  padding: 50px;
+  margin: 0px auto;
+}
+
+
+
+/* Popup */
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-size: 0px;
+	line-height: 25px;
+	text-align: center;
+  word-break: break-word;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: rgba(255,255,255,1.00);
+  background-color: rgba(0,0,0,0.50);
+  overflow: hidden;
+  -webkit-animation: popup-bg-birth 0.75s ease-in-out;
+  -moz-animation: popup-bg-birth 0.75s ease-in-out;
+  -o-animation: popup-bg-birth 0.75s ease-in-out;
+  animation: popup-bg-birth 0.75s ease-in-out;
+  z-index: 99999;
+}
+
+.popup.active {
+  display: block;
+}
+
+.popup-aligner {
+  display: inline-block;
+  position: relative;
+  width: 0%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.popup__content {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  vertical-align: middle;
+  background: url('../images/popup-bg.png') no-repeat center center /contain;
+  overflow: visible;
+  text-align: center;
+  white-space: normal;
+  color: #fff;
+  -webkit-animation: popup-birth 0.5s ease-in-out;
+  -moz-animation: popup-birth 0.5s ease-in-out;
+  -o-animation: popup-birth 0.5s ease-in-out;
+  animation: popup-birth 0.5s ease-in-out;
+  padding: 50px 80px;
+  margin: auto;
+  z-index: 1;
+  border: 7px solid #cccccc47;
+}
+
+.popup__content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url('../images/popup-bg.png') no-repeat center center /contain;
+}
+
+.popup__image-bg {
+  display: block;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  width: auto;
+  max-width: none;
+  height: 500%;
+  max-height: 5000px;
+  -webkit-animation: popup-sparks-birth 1s ease-in-out;
+  -moz-animation: popup-sparks-birth 1s ease-in-out;
+  -o-animation: popup-sparks-birth 1s ease-in-out;
+  animation: popup-sparks-birth 1s ease-in-out;
+  margin: auto;
+  z-index: -1;
+}
+
+.popup__image {
+  display: block;
+  position: absolute;
+  top: -15%;
+  left: -5%;
+  right: -2%;
+  width: 107%;
+  max-width: none;
+  height: auto;
+  max-height: none;
+}
+
+.popup__title {
+  display: block;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #fff;
+  padding: 0px;
+}
+
+.popup__text {
+  display: block;
+  position: relative;
+  font-size: 30px;
+  line-height: 35px;
+  padding: 15px 0px;
+  margin: 0px;
+}
+
+.popup__text > .bonus {
+  color: #fff;
+}
+
+.popup__text > .up-to {
+  color: #fff;
+}
+
+.popup__button {
+   display: inline-block;
+  position: relative;
+  width: auto;
+  min-width: 300px;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,1.00);
+  background: linear-gradient(-135deg, #58267B 0, #58267B 100%);
+  border-radius: 20px !important;
+  font-family: Maven Pro !important;
+  padding: 0px 40px;
+  margin: -9px auto;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.popup__button:hover {
+  opacity: 0.50;
+}
+
+.popup__button1:hover {
+  opacity: 0.50;
+}
+
+.popup__text.big-bonus-text {
+  font-size: 40px;
+  line-height: 50px;
+  color: #fff;
+  padding: 0px;
+}
+
+
+
+/* Footer */
+
+.footer {
+  background-color: rgba(25,25,25,1.00);
+  padding: 40px 20px;
+}
+
+.footer__partners {
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #1f212c;
+}
+
+.footer__partners > li {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: 25px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  margin: 0px 10px 20px 10px;
+  -webkit-transition: all 0.25s;
+  -o-transition: all 0.25s;
+  -moz-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.footer__partners > li:hover {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+
+.copyright__text {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  font-size: 13px;
+  line-height: 20px;
+  color: rgba(255,255,255,0.50);
+  text-transform: none;
+  border-bottom: 1px solid #1f212c;
+  padding: 20px 0px;
+  margin: 0px auto;
+}
+
+.copyright__logo {
+  display: inline-block;
+  position: relative;
+  max-height: 50px;
+  margin: 20px 15px 0px 15px;
+  padding: 0px;
+}
+
+@media screen and (max-width: 380px) {
+.popup__button {
+    width: 50%;
+    font-size: 12px;
+    line-height: 40px;
+
+}
+}
