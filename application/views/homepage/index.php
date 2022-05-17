@@ -40,7 +40,13 @@
 
         .popup__content,
         .popup__content:before {
-            background: url(<?= base_url() . 'images/boxgame/' . $popupBGImage ?>) no-repeat center center /cover;
+            <?php 
+            if(file_exists(base_url() . 'images/boxgame/' . $popupBGImage)){
+            ?>
+                background: url(<?= base_url() . 'images/boxgame/' . $popupBGImage ?>) no-repeat center center /cover;
+            <?php } else { ?>
+                background: <?= $popupBGColor?>;
+            <?php } ?>
         }
 
         .popup__button {
@@ -77,14 +83,7 @@
     </style>
 </head>
 
-<body>
-    <header class="header">
-        <?php if (!empty($headerImage)) { ?>
-            <a href="#" class="header__logo exit-button">
-                <img style="max-width:180px; margin-top: 10px;" src="<?php echo base_url(); ?>images/boxgame/<?= $headerImage ?>">
-            </a>
-        <?php } ?>
-    </header>
+<body>    
     <main class="chests">
         <audio id="chest-open" preload="">
             <source src="<?php echo base_url(); ?>sound/boxgame/chest-open.mp3" type="audio/mpeg">            

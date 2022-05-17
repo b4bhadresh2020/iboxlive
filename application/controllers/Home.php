@@ -16,7 +16,7 @@ class Home extends CI_Controller {
             'gameImageAfterTurn2' => 'chest-bonus.png',
             'gameImageAfterTurn3' => 'chest-superbonus.png',
             'sectionOneTitle' => 'You are number 8 out of 36 players today who got this chance',
-            'sectionTwoTitle' => 'The content on this page is not provided directly by Spin Away casino but by a third-party in cooperation with the casino',
+            'sectionTwoTitle' => '',
             'detailImageOne' => 'safe-secure.png',
             'detailImageTwo' => 'responsiblegaming.svg',
             'detailImageThree' => '18plus.png',
@@ -28,6 +28,7 @@ class Home extends CI_Controller {
             'popupFontColor' => '#ffffff',
             'popupButtonBgColor' => '#bc3f1e',
             'popupButtonFontColor' => '#ffffff',
+            'popupBGColor' => 'cadetblue',
             'popupBGImage' => 'welcome-popup-one-email.png',
             'welcomePopupTitle' => 'WIN UP TO 3 PRIZES!',
             'welcomePopupDesc' => 'You were chosen to participate in a lottery with valuable prizes You have 3 chances to open the chests. Good luck!',
@@ -42,6 +43,7 @@ class Home extends CI_Controller {
             'finalPopupDesc' => 'You are number 8 out of 36 players today which won.',
             'finalPopupDetail' => 'Get your 20 freespins + $200 now',
             'finalPopupButtonText' => 'Continue',
+            "disclaimer" => "This offer is not available for players residing in Ontario",
             "url" => "https://track.ads.trackingimpact.com/affiliate_c.php?offer_id=4715&aff_id=1742&aff_sub2=3chestEmail"
         );
     }
