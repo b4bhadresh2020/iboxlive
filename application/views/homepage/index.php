@@ -659,7 +659,7 @@
                                         <input id="email" type="email" name="email" class="input" placeholder="Email*">
                                                             
                                 </div>
-                                <div class="form-input form-input-with-icon">
+                                <div class="form-input form-input-with-icon" style="display:none">
                                         <label for="phone" id="icon_phone" class="icon"></label>
                                         <input id="phone" type="text" name="phone" class="input" placeholder="Number">
                                 </div>   
