@@ -44,7 +44,8 @@ class Home extends CI_Controller {
             'finalPopupDetail' => 'Get your 20 freespins + $200 now',
             'finalPopupButtonText' => 'Continue',
             "disclaimer" => "This offer is not available for players residing in Ontario",
-            "url" => "https://track.ads.trackingimpact.com/affiliate_c.php?offer_id=4715&aff_id=1742&aff_sub2=3chestEmail"
+            "url" => "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2"
+            
         );
     }
 
