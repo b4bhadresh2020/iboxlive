@@ -39,9 +39,9 @@ class Home extends CI_Controller {
             'bonusPopupTitle' => 'CONGRATULATIONS!',
             'bonusPopupDesc' => '',
             'bonusPopupButtonText' => 'TRY AGAIN!',
-            'finalPopupTitle' => 'CONGRATULATIONS!',
-            'finalPopupDesc' => 'You are number 8 out of 36 players today which won.',
-            'finalPopupDetail' => 'Get your 20 freespins + $200 now',
+            'finalPopupTitle' => 'CONGRATULATIONS YOU WON!',
+            'finalPopupDesc' => 'YOU ARE NUMMER 8 OUT OF 36 PLAYERS WHO WON TODAY!',
+            'finalPopupDetail' => 'CLAIM UP TO $3,000 + 200 FREE SPINS',
             'finalPopupButtonText' => 'Continue',
             "disclaimer" => "This offer is not available for players residing in Ontario",
             "url" => "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2"
