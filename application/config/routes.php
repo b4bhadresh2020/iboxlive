@@ -55,4 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['web/privacy-policy'] = 'web/privacy_policy';
 $route['wheelgame/campaign'] = 'wheelgame/campaign';
+$route['home/sendLeadToLiveDelivery'] = 'home/sendLeadToLiveDelivery';
+
 $route['(:any)'] = 'home/campaign/$1';

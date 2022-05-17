@@ -5,15 +5,65 @@ use function GuzzleHttp\json_decode;
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-
+    private $data = [];
     public function __construct() {
         parent::__construct();
         require_once(FCPATH.'vendor/autoload.php');
+        $this->data = array(
+            'headerImage' => 'One-Email.png',
+            'gameImage' => 'chest-closed.png',
+            'gameImageAfterTurn1' => 'chest-empty.png',
+            'gameImageAfterTurn2' => 'chest-bonus.png',
+            'gameImageAfterTurn3' => 'chest-superbonus.png',
+            'sectionOneTitle' => 'You are number 8 out of 36 players today who got this chance',
+            'sectionTwoTitle' => 'The content on this page is not provided directly by Spin Away casino but by a third-party in cooperation with the casino',
+            'detailImageOne' => 'safe-secure.png',
+            'detailImageTwo' => 'responsiblegaming.svg',
+            'detailImageThree' => '18plus.png',
+            'backgroundImage' => 'One-Email-bg.jpg',
+            'bodyBgColor' => '#bc3f1e',
+            'bodyFontColor' => '#ffffff',
+            'footerBgColor' => 'rgba(25,25,25,1.00)',
+            'copyrightTextFontColor' => 'rgba(255,255,255,0.50)',
+            'popupFontColor' => '#ffffff',
+            'popupButtonBgColor' => '#bc3f1e',
+            'popupButtonFontColor' => '#ffffff',
+            'popupBGImage' => 'welcome-popup-one-email.png',
+            'welcomePopupTitle' => 'WIN UP TO 3 PRIZES!',
+            'welcomePopupDesc' => 'You were chosen to participate in a lottery with valuable prizes You have 3 chances to open the chests. Good luck!',
+            'welcomePopupButtonText' => 'START',
+            'emptyPopupTitle' => 'MISS!',
+            'emptyPopupSubTitle' => 'Shots left:',
+            'emptyPopupButtonText' => 'TRY AGAIN!',
+            'bonusPopupTitle' => 'CONGRATULATIONS!',
+            'bonusPopupDesc' => '',
+            'bonusPopupButtonText' => 'TRY AGAIN!',
+            'finalPopupTitle' => 'CONGRATULATIONS!',
+            'finalPopupDesc' => 'You are number 8 out of 36 players today which won.',
+            'finalPopupDetail' => 'Get your 20 freespins + $200 now',
+            'finalPopupButtonText' => 'Continue',
+            "url" => "https://track.ads.trackingimpact.com/affiliate_c.php?offer_id=4715&aff_id=1742&aff_sub2=3chestEmail"
+        );
     }
 
     /* Load front informative website*/
     function index(){
-        $this->load->view('website/website');
+        //$this->load->view('website/website');
+        $this->load->view('homepage/index',$this->data);
+
+    }
+
+    public function sendLeadToLiveDelivery(){
+        $apikey = "";
+        $data = $this->input->post();        
+
+        $client = new GuzzleHttp\Client();
+        $subscriberUrl = "https://suprdat.dk/boxgame_hook/";
+        $body = $client->post($subscriberUrl, [
+            'form_params' => $data, 
+        ]); 
+        $response = $body->getBody()->getContents();
+        echo $this->data['url'];
     }
 
     /*

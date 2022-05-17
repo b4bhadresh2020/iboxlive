@@ -2,7 +2,7 @@
 <html lang="en">
     <?php 
     $domaindata = explode(".",$_SERVER['HTTP_HOST']);
-    $sitename = ucwords($domaindata[1]);
+    $sitename = ucwords(isset($domaindata[1])?$domaindata[1]:$domaindata[0]);
     ?>
     <head>
 
