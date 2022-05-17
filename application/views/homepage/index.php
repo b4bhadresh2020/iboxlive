@@ -652,11 +652,11 @@
 
                                 <div class="form-input form-input-with-icon">
                                         <label for="name" id="icon_user" class="icon"></label>
-                                        <input id="name" type="text" class="input" name="name" placeholder="Name">
+                                        <input id="name" type="text" class="input" name="name" placeholder="Name*">
                                 </div>
                                 <div class="form-input form-input-with-icon">
                                         <label for="email" id="icon_email" class="icon"></label>
-                                        <input id="email" type="email" name="email" class="input" placeholder="Email">
+                                        <input id="email" type="email" name="email" class="input" placeholder="Email*">
                                                             
                                 </div>
                                 <div class="form-input form-input-with-icon">
@@ -745,10 +745,6 @@
                 email: {
                     required: true,
                     email: true
-                },
-                phone: {
-                    required: true,
-                    minlength: 6
                 }
             },
             // Specify validation error messages
@@ -759,11 +755,7 @@
                 },
                 email: {
                     required: "Email is required",
-                },
-                phone: {
-                    required: "Phone is required",
-                    minlength: "Minimum 6 characters"
-                },
+                }
             }
         });
 
