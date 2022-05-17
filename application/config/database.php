@@ -200,7 +200,7 @@ if(strtolower($_SERVER['HTTP_HOST']) == 'localhost'){
 
 	$db['default']['password'] = '';
 
-	$db['default']['database'] = 'inboxgamecom_db';
+	$db['default']['database'] = 'game_campaign_portal';
 
 
 
