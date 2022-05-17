@@ -40,7 +40,7 @@ class Home extends CI_Controller {
             'bonusPopupDesc' => '',
             'bonusPopupButtonText' => 'TRY AGAIN!',
             'finalPopupTitle' => 'CONGRATULATIONS YOU WON!',
-            'finalPopupDesc' => 'YOU ARE NUMMER 8 OUT OF 36 PLAYERS WHO WON TODAY!',
+            'finalPopupDesc' => 'YOU ARE NUMBER 8 OUT OF 36 PLAYERS WHO WON TODAY!',
             'finalPopupDetail' => 'CLAIM UP TO $3,000 + 200 FREE SPINS',
             'finalPopupButtonText' => 'Continue',
             "disclaimer" => "This offer is not available for players residing in Ontario",
