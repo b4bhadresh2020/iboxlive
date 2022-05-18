@@ -17,6 +17,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/boxgame/jquery.magnific-popup.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/boxgame/jquery.cookie.js"></script>
     <script src="<?php echo base_url(); ?>js/boxgame/jquery.validate.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/confetti.browser.min.js"></script>
     <style>
         body {
             background-color: <?= @$bodyBgColor ?>;
@@ -235,7 +236,9 @@
             <div class="mfp-hide"></div>
 
             <div id="modal_final" class="popup__content mfp-hide clearfix" style="text-align: center;">
+                 
                 <div class="rounded maven noLeftPadding noRightPadding">
+                <canvas id="canvas" style="display: none; position: absolute;" ></canvas>
                     <?php if (!empty($finalPopupTitle)) { ?>
                         <h2 class="popup__title1"><?= $finalPopupTitle ?></h2>
                     <?php } ?>
@@ -693,6 +696,7 @@
         function showSignup() {
 
             setTimeout(function() {
+                $('#canvas').show().showConfetti();
                 $.magnificPopup.open({
                     items: {
                         src: '#modal_final'
@@ -778,7 +782,33 @@
             } else {
                 console.log('FALSE');
             }
-        });        
+        });    
+        
+        
+        // START:: confetti -DAB
+        $.fn.showConfetti = function showConfetti() {
+            var duration = 900 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1044 };
+
+            function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            // since particles fall down, start a bit higher than random
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        }
+    // END:: confetti -DAB3
     </script>
 
 </body>
