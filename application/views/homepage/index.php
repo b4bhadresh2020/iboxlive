@@ -80,6 +80,14 @@
             text-align: center;
             position: relative;
         }
+
+        .blink_me {
+            animation: blinker 1s linear infinite;
+        }
+
+         @keyframes blinker {  
+            50% { opacity: 0; }
+        }
         
     </style>
 </head>
@@ -246,7 +254,7 @@
                         <h5 class="popup__text1"><?= $finalPopupDesc ?></h5>
                     <?php } ?>
                     <?php if (!empty($finalPopupDetail)) { ?>
-                        <h3 class="h2Modal maven capital popup__text2"><?= $finalPopupDetail ?></h3>
+                        <h3 class="h2Modal maven capital popup__text2 blink_me"><?= $finalPopupDetail ?></h3>
                     <?php } ?>
                     <div>
                         <style>
@@ -377,7 +385,7 @@
 
                             .popup__text2 {
                                 font-weight: 900;
-                                background: #ffffff1f;
+                                background: #000000;
                                 padding: 1em 0;
                                 margin-bottom: 2em;
                                 border-radius: 10px;
@@ -467,7 +475,7 @@
                                 }
 
                                 h3 {
-                                    font-size: 14px !important;
+                                    font-size: 16px !important;
                                 }
 
                                 .formBtn {
@@ -498,7 +506,7 @@
 
                                 .popup__text2 {
                                     font-weight: 900;
-                                    background: #ffffff1f;
+                                    background: #000000;
                                     padding: .7em 0;
                                     margin-bottom: .5em;
                                     border-radius: 10px;
