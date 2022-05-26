@@ -82,14 +82,15 @@ class Home extends CI_Controller {
             "timerLabel" => "This bonus expires in",
             "wonLabel" => "You Won",
             "freeSpinLabel" => "Free Spins",
-            "fontColor" => "#000000",
+            "fontColor" => "#ffffff",
             "blinkfontColor" => "antiquewhite",
             "isBlockLeft" => false,
             "priceTagLabel" => "",
             "balanceTitle" => "Balance",
             "pinImage" => "pin-dark.png",
             "fullWinnerLabel" => "CONGRATULATIONS YOU WON!",
-            "url" => "https://record.betsafe.com/_GWm34-Uyrra0S4M-4tL-2mNd7ZgqdRLk/1/?payload=%%test%%",
+            "disclaimer" => "This offer is not available for players residing in Ontario",
+            "url" => "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2",
             "wheel" => array(
                 array(
                     "name" => "LOSE A TURN",    
