@@ -62,7 +62,7 @@ class Home extends CI_Controller {
             "buttonColor" => "#820000",
             "winnerImage" => "final_popup.jpg",
             "image" => "CA-Safe-KE.png",
-            "header" => "Spin the Wheel & win 100% bonus up to 1000 CAD and 50 free spins",
+            "header" => "Spin the Wheel & Win 1000 CAD and 50 Free Spins",
             "price" => "1000",
             "spin" => "50",
             "startAmount" => 100,
