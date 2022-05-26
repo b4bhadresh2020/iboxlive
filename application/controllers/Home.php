@@ -14,7 +14,7 @@ class Home extends CI_Controller {
 
     /* Load boxgame with signup*/
     function index(){
-        $this->boxdata = array(
+         $this->boxdata = array(
             'headerImage' => 'One-Email.png',
             'gameImage' => 'chest-closed.png',
             'gameImageAfterTurn1' => 'chest-empty.png',
@@ -49,7 +49,7 @@ class Home extends CI_Controller {
             'finalPopupDetail' => 'CLAIM UP TO $3,000 + 200 FREE SPINS',
             'finalPopupButtonText' => 'Continue',
             "disclaimer" => "This offer is not available for players residing in Ontario",
-            "url" => "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2"
+            "url" => "#"
             
         );
         $this->load->view('homepage/index',$this->boxdata);
@@ -90,7 +90,7 @@ class Home extends CI_Controller {
             "pinImage" => "pin-dark.png",
             "fullWinnerLabel" => "CONGRATULATIONS YOU WON!",
             "disclaimer" => "This offer is not available for players residing in Ontario",
-            "url" => "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2",
+            "url" => "#",
             "wheel" => array(
                 array(
                     "name" => "LOSE A TURN",    
@@ -132,14 +132,12 @@ class Home extends CI_Controller {
 
     public function sendLeadToLiveDelivery(){
         $apikey = "";
-        $url = "";
-        $data = $this->input->post();        
+        $url = "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2";
+        $data = $this->input->post();   
         if($data['game'] == 0){
             $subscriberUrl = "https://suprdat.dk/boxgame_hook/";
-            $url = $this->boxdata['url'];
         }else{
             $subscriberUrl = "https://suprdat.dk/wheelgame_hook/";
-            $url = $this->wheeldata['url'];
         }
         $client = new GuzzleHttp\Client();
         $body = $client->post($subscriberUrl, [
