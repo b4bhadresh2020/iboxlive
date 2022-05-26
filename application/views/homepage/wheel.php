@@ -314,7 +314,8 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/wheelgame/jq_fortune4.js"></script>
     <script src="<?php echo base_url(); ?>js/wheelgame/jquery.validate.min.js"></script>    
     <script>    
-
+    
+    var BASE_URL = '<?php echo base_url(); ?>';
     var startAmount = "<?= isset($startAmount)?$startAmount:0 ?>";
     var currency = "<?= isset($currency)?$currency:"$" ?>";
     var spinAgainLabel1 = "<?= isset($spinAgainLabel1)?$spinAgainLabel1:"SPIN IT AGAIN" ?>";
