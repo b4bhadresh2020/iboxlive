@@ -5,11 +5,16 @@ use function GuzzleHttp\json_decode;
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-    private $data = [];
+    private $boxdata = [];
+    private $wheeldata = [];
     public function __construct() {
         parent::__construct();
-        require_once(FCPATH.'vendor/autoload.php');
-        $this->data = array(
+        require_once(FCPATH.'vendor/autoload.php');        
+    }
+
+    /* Load boxgame with signup*/
+    function index(){
+        $this->boxdata = array(
             'headerImage' => 'One-Email.png',
             'gameImage' => 'chest-closed.png',
             'gameImageAfterTurn1' => 'chest-empty.png',
@@ -47,26 +52,100 @@ class Home extends CI_Controller {
             "url" => "https://sempected-wompted.com/29946a6f-13cd-4adf-a0c3-d64e45f0c0c2"
             
         );
+        $this->load->view('homepage/index',$this->boxdata);
     }
 
-    /* Load front informative website*/
-    function index(){
-        //$this->load->view('website/website');
-        $this->load->view('homepage/index',$this->data);
-
+    /* Load wheel with signup*/
+    function wheel(){
+        $this->wheeldata = array(
+            "backgroundImage" => "redbg.png",
+            "buttonColor" => "#820000",
+            "winnerImage" => "final_popup.jpg",
+            "image" => "CA-Safe-KE.png",
+            "header" => "Spin the Wheel & win 100% bonus up to 1000 CAD and 50 free spins",
+            "price" => "1000",
+            "spin" => "50",
+            "startAmount" => 100,
+            "currency" => "$",
+            "popupText1" => "YOU NOW HAVE ",
+            "popupText2" => "FREE SPINS",
+            "popupButton" => "GO !",
+            "spinLeftLabel" => "Spins Left",
+            "spinHereLabel" => "SPIN HERE!",
+            "spinAgainLabel1" => "SPIN IT AGAIN",
+            "spinAgainLabel2" => "HAVE ANOTHER GO",
+            "spinAgainLabel3" => "SPIN IT AGAIN",
+            "spinAgainLabel4" => "TRY AGAIN",
+            "isPrefix" => 1,
+            "claimNowButton" => "Jackpot $1000 + 50 Free Spins",
+            "createAccountButton" => "Continue",
+            "timerLabel" => "This bonus expires in",
+            "wonLabel" => "You Won",
+            "freeSpinLabel" => "Free Spins",
+            "fontColor" => "#000000",
+            "blinkfontColor" => "antiquewhite",
+            "isBlockLeft" => false,
+            "priceTagLabel" => "",
+            "balanceTitle" => "Balance",
+            "pinImage" => "pin-dark.png",
+            "fullWinnerLabel" => "CONGRATULATIONS YOU WON!",
+            "url" => "https://record.betsafe.com/_GWm34-Uyrra0S4M-4tL-2mNd7ZgqdRLk/1/?payload=%%test%%",
+            "wheel" => array(
+                array(
+                    "name" => "LOSE A TURN",    
+                    "price" => 0  
+                ),
+                array(
+                    "name" => "YOU LOST $50",    
+                    "price" => 50    
+                ),
+                array(
+                    "name" => "YOU WIN $150",    
+                    "price" => 150    
+                ),
+                array(
+                    "name" => "LOSE A TURN",    
+                    "price" => 0    
+                ),
+                array(
+                    "name" => "LOSE A TURN",    
+                    "price" => 0    
+                ),
+                array(
+                    "name" => "Jackpot $1000 + 50 Free Spins",    
+                    "price" => 1000
+                ),
+                array(
+                    "name" => "YOU WIN $10",    
+                    "price" => 10    
+                ),
+                array(
+                    "name" => "YOU LOST $25",    
+                    "price" => 25   
+                )
+                ),
+                "totalSpin" => 5
+        );
+        $this->load->view('homepage/wheel',$this->wheeldata);
     }
 
     public function sendLeadToLiveDelivery(){
         $apikey = "";
+        $url = "";
         $data = $this->input->post();        
-
+        if($data['game'] == 0){
+            $subscriberUrl = "https://suprdat.dk/boxgame_hook/";
+            $url = $this->boxdata['url'];
+        }else{
+            $subscriberUrl = "https://suprdat.dk/wheelgame_hook/";
+            $url = $this->wheeldata['url'];
+        }
         $client = new GuzzleHttp\Client();
-        $subscriberUrl = "https://suprdat.dk/boxgame_hook/";
         $body = $client->post($subscriberUrl, [
             'form_params' => $data, 
         ]); 
         $response = $body->getBody()->getContents();
-        echo $this->data['url'];
+        echo $url;
     }
 
     /*

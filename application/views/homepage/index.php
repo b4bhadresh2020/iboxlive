@@ -660,7 +660,7 @@
                         </style>
                       
                         <form id="submitUserForm" action="" method="POST" name="submitUserForm" novalidate="novalidate">
-
+                                <input type="hidden" name="game" value="0" />
                                 <div class="form-input form-input-with-icon">
                                         <label for="name" id="icon_user" class="icon"></label>
                                         <input id="name" type="text" class="input" name="name" placeholder="Name*">
