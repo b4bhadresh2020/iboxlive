@@ -525,20 +525,21 @@
                     url : BASE_URL + 'home/sendLeadToLiveDelivery',
                     data : userDetails,
                     success : function(campaign){
-                        console.log(campaign);
-                        window.location.assign(campaign);                    
+                        fireFacebookPixcelEventOnEnd();
+                        setTimeout(() => {
+                            window.location.assign(campaign);                    
+                        }, 100);
                     }
                 });
 
             } else {
-                console.log('FALSE');
+                console.log('something wrong ...');
             }
         }); 
     
     </script>
     
-    <script>       
-
+    <script>   
         // Timer clock - DAB 
         function countdown( elementName, minutes, seconds ){
             var element, endTime, hours, mins, msLeft, time;
@@ -567,7 +568,43 @@
         }
         countdown( "timer", 10, 0 );
 
+        //facebook pixel event start called
+        function fireFacebookPixcelEventOnLoad(response){
+            (function(f,b,e,v,n,t,s){   
+                if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js')
+            );
+            $('#nodeScript').html(`<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=555693872570980&ev=PageView&noscript=1"/></noscript>`);
 
+            setTimeout(() => {     
+                fbq('init', '555693872570980');
+                fbq('track', 'PageView');
+            }, 100); 
+        }
+
+        //facebook pixel event end called
+        function fireFacebookPixcelEventOnEnd(){          
+            (function(f,b,e,v,n,t,s){   
+                if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js')
+            );
+            $('#nodeScript').html(`<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=555693872570980&ev=Lead&noscript=1"/></noscript>`);
+
+            setTimeout(() => {     
+                fbq('init', '555693872570980');
+                fbq('track', 'Lead');
+            }, 100);               
+        }
+
+        fireFacebookPixcelEventOnLoad();
     </script>
 </body>
 </html>

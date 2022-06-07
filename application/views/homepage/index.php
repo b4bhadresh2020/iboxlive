@@ -697,10 +697,9 @@
 
     <script src="<?php echo base_url(); ?>js/boxgame/main.js"></script>
 
-
     <script type="application/javascript">
         var BASE_URL = '<?php echo base_url(); ?>';
-
+        
         function showSignup() {
 
             setTimeout(function() {
@@ -782,18 +781,21 @@
                     url : BASE_URL + 'home/sendLeadToLiveDelivery',
                     data : userDetails,
                     success : function(campaign){
-                        console.log(campaign);
-                        window.location.assign(campaign);                    
+                        fireFacebookPixcelEventOnEnd();
+                        setTimeout(() => {
+                            window.location.assign(campaign);    
+                        }, 100);
+                        
                     }
                 });
 
             } else {
-                console.log('FALSE');
+                console.log('something wrong ...');
             }
         });    
         
         
-        // START:: confetti -DAB
+        // START:: confetti 
         $.fn.showConfetti = function showConfetti() {
             var duration = 900 * 1000;
             var animationEnd = Date.now() + duration;
@@ -816,8 +818,46 @@
             confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
             }, 600);
         }
-    // END:: confetti -DAB3
-    </script>
+        // END:: confetti 
+
+        //facebook pixel event start called
+        function fireFacebookPixcelEventOnLoad(response){
+            (function(f,b,e,v,n,t,s){   
+                if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js')
+            );
+            $('#nodeScript').html(`<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=555693872570980&ev=PageView&noscript=1"/></noscript>`);
+
+            setTimeout(() => {     
+                fbq('init', '555693872570980');
+                fbq('track', 'PageView');
+            }, 100); 
+        }
+
+        //facebook pixel event end called
+        function fireFacebookPixcelEventOnEnd(){          
+            (function(f,b,e,v,n,t,s){   
+                if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js')
+            );
+            $('#nodeScript').html(`<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=555693872570980&ev=Lead&noscript=1"/></noscript>`);
+
+            setTimeout(() => {     
+                fbq('init', '555693872570980');
+                fbq('track', 'Lead');
+            }, 100);               
+        }
+
+        fireFacebookPixcelEventOnLoad();
+    </script>  
 
 </body>
 </html>
