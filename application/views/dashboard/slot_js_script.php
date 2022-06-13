@@ -27,6 +27,7 @@
 	var isShowThankPage = <?php echo $isShowThankPage; ?>;
 	var isRedirectPage = <?php echo $isRedirectPage; ?>;
 	var registerRedirectUrl = '<?php echo $registerRedirectUrl; ?>';
+	var isClicked = 0;
 
 	//slot initialization
 	var btnShuffle = document.querySelector('#casinoShuffle');
@@ -123,12 +124,7 @@
 
 					//convert php array to jquery array 
 					var userInfoRequiredFields = <?php echo json_encode($userInfoRequired); ?>;
-					userInfoRequiredFields = JSON.parse(userInfoRequiredFields);
-
-					//click counter by user
-                    if(emailId != ""){
-                        userByClick(emailId);
-                    }
+					userInfoRequiredFields = JSON.parse(userInfoRequiredFields);					
 
 					//default email array
 					var emailArr = <?php echo json_encode(getEmailArr()); ?>
@@ -519,7 +515,11 @@
 
 											//click counter by user
 											var slotResponse  = JSON.parse(response);
-											userByClick("",slotResponse.userId);
+
+											if(!isClicked){
+                                            	userByClick("",slotResponse.userId);
+                                            	isClicked = 1;
+                                        	}											
 
 											if (isRedirectPage == 1) {
 												//facebook pixel (do not remove. It is uncomment in live)
@@ -639,6 +639,10 @@
 			success : function(response){
 				try{
 					var responseData = JSON.parse(response);
+					if(!isClicked){
+						userByClick(emailId);
+						isClicked = 1;
+					}
 					if (responseData.isSecondChance == 1) {
 
 						isConfettiOn = responseData.isConfettiOn;

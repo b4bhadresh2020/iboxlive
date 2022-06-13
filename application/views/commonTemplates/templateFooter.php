@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
 
-function userByClick(emailId,userId=0){
+function userByClick(emailId="",userId=0){
     var campaignId = $('#campaignId').val(); 
     if(emailId != ""){
         $.ajax({
@@ -23,15 +23,11 @@ function userByClick(emailId,userId=0){
                 campaignId  : campaignId
             },
             success : function(userId){
-                if(userId != 0){
-                    addUserClick(userId,campaignId);
-                }
+                addUserClick(userId,campaignId);
             }
         });
     }else{
-        if(userId != 0){
-            addUserClick(userId,campaignId);
-        }
+        addUserClick(userId,campaignId);
     }
 }
 

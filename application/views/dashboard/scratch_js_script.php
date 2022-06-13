@@ -128,6 +128,7 @@
             var isDisableIcloudEmail	 = '<?php echo $isDisableIcloudEmail; ?>';
             var postCode = "";
             var timerRedirectUrl = '<?php echo $timerRedirectUrl; ?>';
+            var isClicked = 0;
 
             function clearCanvas(){
                 canvas.getContext('2d');
@@ -503,11 +504,6 @@
                     var userInfoRequiredFields = <?php echo json_encode($userInfoRequired); ?>;
                     userInfoRequiredFields = JSON.parse(userInfoRequiredFields);
 
-                    //click counter by user
-                    if(emailId != ""){
-                        userByClick(emailId);
-                    }
-
                     //if user fields  empty then store in comma seprated string in below variable
                     var userRequiredFields = '';   
                     var born = '';     
@@ -754,8 +750,8 @@
                                     userInfoTextVal:userInfoTextVal
                                 },
                                 success:function(response){
-                                    /*console.log(response);
-                                    debugger;*/
+                                    console.log(response);
+                                    
                                     if(response == 3){
                                         errorMsg = language + '_Limit_Exceed';
                                         getErrorMsg(language,errorMsg);
@@ -778,9 +774,7 @@
                                             Cookies.set('regDetail', getRegDetail);
                                         } else {
                                             Cookies.set('regDetail', regDetail, { expires: 1 });
-                                        }
-
-                                        
+                                        }                                       
 
                                         $('#userInfoError').html('');
                                         var mulImages  = JSON.parse(response);
@@ -790,7 +784,10 @@
                                         permissionModelBtnCount = 1;
 
                                         //click counter by user
-                                        userByClick("",mulImages.userId);
+                                        if(!isClicked){
+                                            userByClick("",mulImages.userId);
+                                            isClicked = 1;
+                                        }
 
                                         if(isBrowserBase == 1) {
                                             $('.browser-base-regform').hide();
@@ -1106,7 +1103,6 @@
                         var emailId     = $('#emailId').val();
                         var campaignId  = $('#campaignId').val();
                         var permissionModelBtnCount = isRegistrationOn;
-
                         $.ajax({
                             type:"post",
                             url :BASE_URL+'home/checkUserWinOrNot',
@@ -1117,6 +1113,12 @@
                             },
                             success:function(winStat){
                                 $('#winStat').val(winStat);
+                                
+                                // We need to increment click once the game scratch.
+                                if(!isClicked){
+                                    userByClick(emailId);
+                                    isClicked = 1;
+                                }
                                 if (winStat == 1 ) {
 
                                     //draw win line

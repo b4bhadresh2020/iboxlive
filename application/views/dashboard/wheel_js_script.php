@@ -36,6 +36,7 @@
     var isDisableIcloudEmail	 = '<?php echo $isDisableIcloudEmail; ?>';
     var postCode = "";
     var timerRedirectUrl = '<?php echo $timerRedirectUrl; ?>';
+    var isClicked = 0;
 
     $(document).ready(function(){
 
@@ -118,12 +119,8 @@
 
                     //convert php array to jquery array 
                     var userInfoRequiredFields = <?php echo json_encode($userInfoRequired); ?>;
-                    userInfoRequiredFields = JSON.parse(userInfoRequiredFields);
+                    userInfoRequiredFields = JSON.parse(userInfoRequiredFields);                  
                     
-                    //click counter by user
-                    if(emailId != ""){
-                        userByClick(emailId);
-                    }
 
                     //default email array
                     var emailArr = <?php echo json_encode(getEmailArr()); ?>;
@@ -523,7 +520,11 @@
 
                                             //click counter by user
                                             var wheelResponse  = JSON.parse(response);
-											userByClick("",wheelResponse.userId);
+                                            
+                                            if(!isClicked){
+                                                userByClick("",wheelResponse.userId);
+                                                isClicked = 1;
+                                            }											
 
                                             if (isRedirectPage == 1) {
                                                 //facebook pixel (do not remove. It is uncomment in live)
@@ -685,6 +686,12 @@
             },
             success : function(response){
                 try{
+
+                    if(!isClicked){
+                        userByClick(emailId);
+                        isClicked = 1;
+                    }
+
                     var responseData = JSON.parse(response);
                     if (responseData.isSecondChance == 1) {
 
@@ -836,8 +843,7 @@
                         emailId : emailId
                     },
                     success : function(response){
-                        /*console.log(response);*/
-
+                        /*console.log(response);*/                        
                         try{
 
                             if (response == 0) {
